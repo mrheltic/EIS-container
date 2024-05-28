@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /environment
 COPY requirements.txt /environment/
 COPY autobalancingTest.ipynb /environment/
+COPY cnnTest.ipynb /environment/
 RUN pip install -U -r /environment/requirements.txt
 EXPOSE 8888
 ENTRYPOINT ["jupyter", "notebook", "--no-browser","--ip=0.0.0.0","--NotebookApp.token=''","--NotebookApp.password=''"]
