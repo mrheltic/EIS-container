@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  container1:
+    build:
+      context: .
+      dockerfile: Dockerfile-Pretrained
+    ports:
+      - "8888:8888"
+  container2:
+    build:
+      context: .
+      dockerfile: Dockerfile-Updatable
+    ports:
+      - "8888:8888"

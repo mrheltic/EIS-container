@@ -1,0 +1,20 @@
+# Use the official TensorFlow Docker image as the base image
+FROM tensorflow/tensorflow:latest
+
+# Install additional dependencies
+RUN pip install keras image
+
+# Set the working directory
+WORKDIR /app
+
+# Copy your AI and deep learning code to the container
+COPY . /app
+
+# Add the Test_Images folder to the container
+COPY Container_Script/Test_Images /app/Container_Script/Test_Images
+
+# Expose port 8888
+EXPOSE 8888
+
+# Set the entry point command to run your code
+CMD ["python", "Container_Script/CNN_model.py"]
