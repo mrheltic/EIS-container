@@ -153,7 +153,15 @@ with open('Container_Script/history.txt', 'w') as f:
     for i, hist in enumerate(history.history['loss']):
         f.write(f'{i+1}\t{hist}\t{history.history["accuracy"][i]}\t{history.history["val_loss"][i]}\t{history.history["val_accuracy"][i]}\n')
 
-# Salva su un file i nomi delle classi
+# Control if the file already exists
+if os.path.exists('Container_Script/class_names.txt'):
+    # Delete the file if it exists
+    os.remove('Container_Script/class_names.txt')
+
+# Save the class names to a file
 with open('Container_Script/class_names.txt', 'w') as f:
     for name in class_names:
         f.write(f'{name}\n')
+
+# Close the file
+f.close()
