@@ -4,3 +4,7 @@ Container_Script/CNN_model.keras
 /Container_Script/Train_Images/*
 Container_Script/class_names.txt
 Container_Script/history.txt
+Container_Script/results1.txt
+Container_Script/results2.txt
+Container_Script/comparison.png
+Container_Script/comparison.txt
