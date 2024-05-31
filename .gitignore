@@ -2,3 +2,5 @@
 Container_Script/CNN_model.keras
 /Container_Script/Test_Images/*
 /Container_Script/Train_Images/*
+Container_Script/class_names.txt
+Container_Script/history.txt
