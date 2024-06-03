@@ -20,10 +20,10 @@ class_names = ['apple', 'aquarium_fish', 'baby', 'bear', 'beaver', 'bed', 'bee',
                'table', 'tank', 'telephone', 'television', 'tiger', 'tractor', 'train', 'trout', 'tulip', 'turtle',
                'wardrobe', 'whale', 'willow_tree', 'wolf', 'woman', 'worm']
 
-test_images_dir = 'Container_Script/Train_Images'
+test_images_dir = './Train_Images'
 
-train_images_dir = 'Container_Script/Train_Images'
-validation_images_dir = 'Container_Script/Validation_Images'
+train_images_dir = './Train_Images'
+validation_images_dir = './Validation_Images'
 
 for filename in os.listdir(train_images_dir):
     # Load the image
@@ -127,8 +127,8 @@ history = model.fit(train_images, train_labels,
 test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
 
 # Controlla se il modello esiste già, se si carica le le informazioni di loss e accuracy
-if os.path.exists('Container_Script/history.txt'):
-    with open('Container_Script/history.txt', 'r') as f:
+if os.path.exists('./history.txt'):
+    with open('./history.txt', 'r') as f:
         lines = f.readlines()
         old_test_loss, old_test_acc = float(lines[0].split(':')[1].split(',')[0]), float(lines[0].split(':')[2])
         print(f'Loaded test loss: {old_test_loss}, test accuracy: {old_test_acc}')
@@ -141,25 +141,25 @@ else :
     print('No history file found, starting from scratch')
 
 # Salva il modello se non ce'già un modello (a prescindere) oppure se il modello attuale ha una loss function migliore (2,5%) rispetto a quello precedente
-if not os.path.exists('Container_Script/CNN_model.keras') or (test_loss < 99.75*old_test_loss and test_acc > 1.0025*old_test_acc):
-    model.save('Container_Script/CNN_model.keras')
+if not os.path.exists('./CNN_model.keras') or (test_loss < 99.75*old_test_loss and test_acc > 1.0025*old_test_acc):
+    model.save('./CNN_model.keras')
     print(f'Model saved to CNN_model.keras')
     print(f'Loss improvement: {((old_test_loss - test_loss) / old_test_loss) * 100:.3f}%, Accuracy improvement: {((test_acc - old_test_acc) / old_test_acc) * 100:.3f}%')
 
 # Salva su file la history del modello, con i valori di loss e accuracy
-with open('Container_Script/history.txt', 'w') as f:
+with open('./history.txt', 'w') as f:
     f.write(f'Test loss: {test_loss}, Test accuracy: {test_acc}\n')
     f.write('Epoch\tLoss\tAccuracy\tVal_loss\tVal_accuracy\n')
     for i, hist in enumerate(history.history['loss']):
         f.write(f'{i+1}\t{hist}\t{history.history["accuracy"][i]}\t{history.history["val_loss"][i]}\t{history.history["val_accuracy"][i]}\n')
 
 # Control if the file already exists
-if os.path.exists('Container_Script/class_names.txt'):
+if os.path.exists('./class_names.txt'):
     # Delete the file if it exists
-    os.remove('Container_Script/class_names.txt')
+    os.remove('./class_names.txt')
 
 # Save the class names to a file
-with open('Container_Script/class_names.txt', 'w') as f:
+with open('./class_names.txt', 'w') as f:
     for name in class_names:
         f.write(f'{name}\n')
 

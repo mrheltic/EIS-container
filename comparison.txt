@@ -1,0 +1,5 @@
+Both run prediction: oak_tree, Real Label: frog
+Both run prediction: butterfly, Real Label: Parrot
+Both run prediction: tulip, Real Label: Parrot
+Both run prediction: butterfly, Real Label: horse
+Both run prediction: bicycle, Real Label: horse
