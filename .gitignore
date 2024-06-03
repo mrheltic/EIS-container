@@ -5,3 +5,4 @@
 Trained_Model.keras
 docker-compose.yml
 /__pycache__
+CNN_model.keras

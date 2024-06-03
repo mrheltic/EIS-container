@@ -1,4 +1,4 @@
 keras
-matplotlib.pyplot
+matplotlib
 numpy
 scikit-learn

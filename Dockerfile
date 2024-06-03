@@ -11,7 +11,9 @@ EXPOSE 80
 RUN pwd
 
 # Install the dependencies
-RUN pip install keras matplotlib numpy
+# Install the dependencies from requirements.txt
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
 
 # Copy the script files
 COPY ./CNN_model.py .

@@ -126,7 +126,7 @@ history = model.fit(train_images, train_labels,
 
 test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
 
-# Controlla se il modello esiste già, se si carica le le informazioni di loss e accuracy
+"""# Controlla se il modello esiste già, se si carica le le informazioni di loss e accuracy
 if os.path.exists('./history.txt'):
     with open('./history.txt', 'r') as f:
         lines = f.readlines()
@@ -145,6 +145,10 @@ if not os.path.exists('./CNN_model.keras') or (test_loss < 99.75*old_test_loss a
     model.save('./CNN_model.keras')
     print(f'Model saved to CNN_model.keras')
     print(f'Loss improvement: {((old_test_loss - test_loss) / old_test_loss) * 100:.3f}%, Accuracy improvement: {((test_acc - old_test_acc) / old_test_acc) * 100:.3f}%')
+"""
+
+model.save('./CNN_model.keras')
+print(f'Model saved to CNN_model.keras')
 
 # Salva su file la history del modello, con i valori di loss e accuracy
 with open('./history.txt', 'w') as f:
@@ -165,3 +169,5 @@ with open('./class_names.txt', 'w') as f:
 
 # Close the file
 f.close()
+
+print("CNN updated successfully!")
