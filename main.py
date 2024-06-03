@@ -1,6 +1,4 @@
 import subprocess
-import CNN_model
-import CNN_updatable
 import os
 import numpy as np
 import matplotlib.pyplot as plt
