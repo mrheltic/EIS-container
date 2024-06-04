@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 # Path to the folder containing the test images
-test_images_folder = './Test_Images'
+test_images_folder = './Raw-Images'
 print(os.listdir('./Test_Images'))
 
 # Control if exists a file with name "results2.txt" in the folder

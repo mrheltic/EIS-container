@@ -1,5 +1,0 @@
-File name: frog 10.png, Image: frog, Predicted Class: oak_tree
-File name: Parrot 47.jpg, Image: Parrot, Predicted Class: butterfly
-File name: Parrot 53.jpg, Image: Parrot, Predicted Class: tulip
-File name: horse 1.jpg, Image: horse, Predicted Class: butterfly
-File name: horse 14 (2).jpg, Image: horse, Predicted Class: bicycle
