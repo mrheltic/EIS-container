@@ -7,3 +7,7 @@ docker-compose.yml
 /__pycache__
 CNN_model.keras
 /Raw-Images
+class_names.txt
+general_results.txt
+history.txt
+results1.txt
