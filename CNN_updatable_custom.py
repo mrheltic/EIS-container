@@ -25,7 +25,7 @@ class_names = ['apple', 'aquarium_fish', 'baby', 'bear', 'beaver', 'bed', 'bee',
                'table', 'tank', 'telephone', 'television', 'tiger', 'tractor', 'train', 'trout', 'tulip', 'turtle',
                'wardrobe', 'whale', 'willow_tree', 'wolf', 'woman', 'worm']"""
 
-class_names = ['dog', 'horse', 'elephant', 'butterfly', 'chicken', 'cat', 'cow', 'sheep', 'squirrel', 'dog', 'horse', 'elephant', 'butterfly', 'chicken', 'cat', 'cow', 'spider', 'squirrel']
+class_names = ['dog', 'horse', 'elephant', 'butterfly', 'chicken', 'cat', 'cow', 'sheep', 'squirrel', 'dog', 'horse', 'elephant', 'butterfly', 'chicken', 'cat', 'cow', 'spider', 'squirrel', 'Parrot', 'frog']
 
 test_images_dir = './Train_Images'
 
@@ -65,7 +65,7 @@ else:
 test_images = np.empty((0, 32, 32, 3))
 test_labels = np.empty((0, 1))
 
-test_images_folder = './Test_Images'
+test_images_folder = './Test-Parrot'
 # Iterate over all the images in the folder
 for filename in os.listdir(test_images_folder):
     # Load and preprocess the image
@@ -150,6 +150,8 @@ for filename in os.listdir(validation_images_dir):
     labels = np.append(labels, [templabel], axis=0)
 
     counter += 1
+    acc = []
+    loss = []
     
     if counter % 20 == 0:
         # Normalize pixel values to be between 0 and 1
@@ -173,12 +175,12 @@ for filename in os.listdir(validation_images_dir):
 
         #Do the prediction on the test images
         predictions = model.predict(test_images)
-        predicted_classes = np.argmax(predictions, axis=1)
+        predicted_classes = [class_names[i] for i in np.argmax(predictions, axis=1)]
 
-        # Print the accuracy based on predicted classes and real classes
-        print(f'Accuracy: {np.mean(predicted_classes == test_labels[:, 0])}')
+        # Save the accuracy and the loss in the array
+        acc.append(test_acc)
+        loss.append(test_loss)
 
-        
         # Eliminate the model
         del model
 

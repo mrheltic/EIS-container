@@ -4,6 +4,9 @@ FROM tensorflow/tensorflow:latest
 # Set the working directory
 WORKDIR /.
 
+# Install libGL.so.1
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
 # Expose a port for incoming connections
 EXPOSE 80
 
